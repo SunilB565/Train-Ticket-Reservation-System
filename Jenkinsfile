@@ -16,14 +16,12 @@ pipeline {
         }    
         stage('build') {
             steps {
-                sh 'apt update -y && apt install -y java-1.8.0-openjdk maven git wget'
                 sh 'cd Train-Ticket-Reservation-System && mvn clean install'
             }
         } 
         stage('deploy') {
             steps {
                 sh '''
-                wget https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.6/bin/apache-tomcat-11.0.6.tar.gz && tar -xzvf apache-tomcat-11.0.6.tar.gz && rm -f apache-tomcat-11.0.6.tar.gz
                 cp target/TrainBook-1.0.0-SNAPSHOT.war ../apache-tomcat-11.0.6/webapps/
                 cd ../apache-tomcat-11.0.6/webapps
                 rm -rf ROOT
