@@ -1,17 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout') {
+    stage('gitcheckout') {
       steps {
         git --version
       }
     }
-    stage('build') {
+    stage('stage 2') {
       steps {
-        sudo apt update -y
-        sudo apt install -y maven
-        cd Train-Ticket-Reservation-System
-        mvn clean install
+        sh 'echo "Hello World 2"'
       }
     }
     stage('stage 3') {
