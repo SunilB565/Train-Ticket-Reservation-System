@@ -1,10 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('Clone') {
+    stage('Checkout') {
       steps {
-        git 'https://github.com/SunilB565/Train-Ticket-Reservation-System.git'
-        }
+        sh 'git clone https://github.com/SunilB565/Train-Ticket-Reservation-System.git'
+      }
     }
     stage('build') {
       steps {
