@@ -4,7 +4,7 @@ pipeline {
     stage('Checkout') {
       steps {
         git clone https://github.com/SunilB565/Train-Ticket-Reservation-System.git
-        }
+      }
     }
     stage('build') {
       steps {
