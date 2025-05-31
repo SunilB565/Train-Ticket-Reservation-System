@@ -16,7 +16,7 @@ pipeline {
         }    
         stage('build') {
             steps {
-                sh 'sudo apt update -y && sudo apt install -y java-1.8.0-openjdk maven git wget'
+                sh 'apt update -y && apt install -y java-1.8.0-openjdk maven git wget'
                 sh 'cd Train-Ticket-Reservation-System && mvn clean install'
             }
         } 
