@@ -21,6 +21,7 @@ pipeline {
                 sh 'cd Train-Ticket-Reservation-System && mvn clean install'
             }
         }
+    }    
     stages {
         stage('deploy') {
             steps {
