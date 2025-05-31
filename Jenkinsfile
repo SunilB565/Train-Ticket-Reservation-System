@@ -1,14 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('gitcheckout') {
+    stage('Checkout') {
       steps {
-        git -version
-      }
+        git clone 'https://github.com/SunilB565/Train-Ticket-Reservation-System.git'
+        }
     }
-    stage('stage 2') {
+    stage('build') {
       steps {
-        sh 'echo "Hello World 2"'
+        sudo apt update -y
+        sudo apt install -y maven
+        cd Train-Ticket-Reservation-System
+        mvn clean install
       }
     }
     stage('stage 3') {
