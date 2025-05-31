@@ -13,17 +13,13 @@ pipeline {
                     ]]
                 ])
             }
-        }
-    }    
-    stages {
+        }    
         stage('build') {
             steps {
                 sh 'sudo yum update -y && sudo yum install -y java-1.8.0-openjdk maven git wget'
                 sh 'cd Train-Ticket-Reservation-System && mvn clean install'
             }
-        }
-    }    
-    stages {
+        } 
         stage('deploy') {
             steps {
                 sh '''
