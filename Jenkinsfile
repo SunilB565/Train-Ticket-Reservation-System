@@ -1,11 +1,23 @@
-node {
-  stage('Hello') {
-    sh 'echo "Hello World"'
-  }
-  stage('stage 2') {
-    sh 'echo "Hello World 2"'
-  }
-  stage('stage 3') {
-    sh 'echo "Hello World 3"'
+pipeline {
+  agent any
+  stages {
+    stage('Checkout') {
+      steps {
+        git clone https://github.com/SunilB565/Train-Ticket-Reservation-System.git
+        }
+    }
+    stage('build') {
+      steps {
+        sudo apt update -y
+        sudo apt install -y maven
+        cd Train-Ticket-Reservation-System
+        mvn clean install
+      }
+    }
+    stage('stage 3') {
+      steps {
+        sh 'echo "Hello World 3"'
+      }
+    }
   }
 }
