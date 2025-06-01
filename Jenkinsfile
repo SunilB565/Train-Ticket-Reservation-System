@@ -108,6 +108,15 @@ pipeline {
                    sh 'mvn clean install'
             }
         }
+        stage('Sonar-analysis') {
+            steps {
+	            withSonarQubeEnv('sonar') {
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=sonar-qube-analsys \
+		     -Dsonar.java.binaries=. \
+                    -Dsonar.projectKey=sonar-qube-analsys '''
+		        }
+            }
+        }
       stage('upload Jfrog artifact') {
             steps {
                       rtServer (
